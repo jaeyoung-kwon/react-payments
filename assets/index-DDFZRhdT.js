@@ -13315,7 +13315,7 @@ function CardPreview({
 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(CardChip, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(CardTypeBadge, { src: `img/${cardType}.png`, $cardType: cardType }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(CardTypeBadge, { src: `./img/${cardType}.png`, $cardType: cardType }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       CardInfoBox,
       {
