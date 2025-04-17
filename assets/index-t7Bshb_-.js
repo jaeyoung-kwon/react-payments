@@ -13450,6 +13450,10 @@ const EXPIRATION_DATE_INPUT_TYPE = [
   "expirationDatePart1",
   "expirationDatePart2"
 ];
+const EXPIRATION_DATE_INPUT_PLACEHOLDER = {
+  expirationDatePart1: "MM",
+  expirationDatePart2: "YY"
+};
 function CardNumberInputField({
   inputValue,
   setInputValue,
@@ -13581,7 +13585,7 @@ function ExpirationDateInputField({
     Input,
     {
       type: "number",
-      placeholder: "MM",
+      placeholder: EXPIRATION_DATE_INPUT_PLACEHOLDER[inputType],
       value: inputValue[inputType],
       onChange,
       name: inputType,
