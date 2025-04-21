@@ -20,6 +20,32 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     src: url(${Inter}) format('truetype');
   }
+
+  // reset css
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    line-height: 1;
+  }
+
+  ol, ul {
+    list-style: none;
+  }
+
+  blockquote, q {
+    quotes: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
   
   `;
 
