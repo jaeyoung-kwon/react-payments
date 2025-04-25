@@ -1,11 +1,7 @@
-import "./App.css";
+import Payments from './pages/payments/Payments';
 
 function App() {
-  return (
-    <>
-      <h1>React Payments</h1>
-    </>
-  );
+  return <Payments />;
 }
 
 export default App;
