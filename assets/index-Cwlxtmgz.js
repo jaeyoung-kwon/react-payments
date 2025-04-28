@@ -15478,6 +15478,24 @@ new TextEncoder();
   ...NO_BODY_STATUS_CODES,
   304
 ]);
+function FooterButton({
+  size,
+  children,
+  onClick
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(StyledButton, { $size: size, onClick, children });
+}
+const StyledButton = dt.button`
+  cursor: pointer;
+  width: 100%;
+  padding: ${(props) => props.$size === "large" ? "20px" : "16px"};
+  background-color: #333333;
+  color: #f3f3f3;
+  font-weight: 700;
+  font-size: ${(props) => props.$size === "large" ? "16px" : "14px"};
+  border-radius: 8px;
+  border: none;
+`;
 function MobileLayoutContainer({ children }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(MobileLayout, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(MobileContainer, { children }) });
 }
@@ -15496,6 +15514,45 @@ const MobileContainer = dt.div`
   min-height: 100vh;
   background-color: white;
   border: 1px solid lightgray;
+`;
+function Complete() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const handleGoHome = () => {
+    navigate("/");
+  };
+  reactExports.useEffect(() => {
+    if (!location.state) navigate("/");
+  }, []);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(MobileLayoutContainer, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(CompleteContainer, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: "./img/circle_check.png" }),
+    location.state && /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoText, { children: [
+      location.state.cardNumberPart1,
+      "로 시작하는 ",
+      /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+      " ",
+      location.state.cardBank,
+      "가 등록되었어요."
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(FooterButton, { size: "middle", onClick: handleGoHome, children: "확인" })
+  ] }) });
+}
+const CompleteContainer = dt.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding: 44px 28px;
+  box-sizing: border-box;
+`;
+const InfoText = dt.p`
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: pre-wrap;
 `;
 const CARD_TYPE = {
   visa: "visa",
@@ -16327,24 +16384,6 @@ const Caption = dt.p`
   font-size: 9.5px;
   color: #8b95a1;
 `;
-function FooterButton({
-  size,
-  children,
-  onClick
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(StyledButton, { $size: size, onClick, children });
-}
-const StyledButton = dt.button`
-  cursor: pointer;
-  width: 100%;
-  padding: ${(props) => props.$size === "large" ? "20px" : "16px"};
-  background-color: #333333;
-  color: #f3f3f3;
-  font-weight: 700;
-  font-size: ${(props) => props.$size === "large" ? "16px" : "14px"};
-  border-radius: 8px;
-  border: none;
-`;
 function PaymentsSubmitButton({
   handleSubmit
 }) {
@@ -16498,53 +16537,14 @@ const PaymentsContainer = dt.div`
   padding: 44px 28px;
   min-height: 100vh;
 `;
-function Complete() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const handleGoHome = () => {
-    navigate("/");
-  };
-  reactExports.useEffect(() => {
-    if (!location.state) navigate("/");
-  }, []);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(MobileLayoutContainer, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(CompleteContainer, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: "./img/circle_check.png" }),
-    location.state && /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoText, { children: [
-      location.state.cardNumberPart1,
-      "로 시작하는 ",
-      /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-      " ",
-      location.state.cardBank,
-      "가 등록되었어요."
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(FooterButton, { size: "middle", onClick: handleGoHome, children: "확인" })
-  ] }) });
-}
-const CompleteContainer = dt.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  width: 100%;
-  padding: 44px 28px;
-  box-sizing: border-box;
-`;
-const InfoText = dt.p`
-  font-weight: 700;
-  font-size: 24px;
-  text-align: center;
-  vertical-align: middle;
-  white-space: pre-wrap;
-`;
 function App() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(BrowserRouter, { basename: "/react-payments", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Routes, { children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Routes, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Payments, {}) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/complete", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Complete, {}) })
-  ] }) });
+  ] });
 }
 ReactDOM.createRoot(document.getElementById("root")).render(
-  /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(BrowserRouter, { children: [
+  /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(BrowserRouter, { basename: "/react-payments", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(GlobalStyle, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(App, {})
   ] }) })
