@@ -15642,7 +15642,7 @@ const CardNumberMask = dt.div`
   background-color: white;
   border-radius: 50%;
 `;
-function CardPreview({
+const CardPreview = reactExports.memo(function CardPreview2({
   cardNumberInputValue,
   expirationDateInputValue,
   cardType,
@@ -15659,7 +15659,7 @@ function CardPreview({
       }
     )
   ] });
-}
+});
 const Card = dt.div`
   position: relative;
   display: flex;
