@@ -15643,7 +15643,7 @@ const CardNumberMask = dt.div`
   border-radius: 50%;
 `;
 const getImageUrl = (name) => {
-  return new URL((/* @__PURE__ */ Object.assign({}))[`./dir/${name}.png`], import.meta.url).href;
+  return new URL((/* @__PURE__ */ Object.assign({}))[`./${name}.png`], import.meta.url).href;
 };
 const CardPreview = reactExports.memo(function CardPreview2({
   cardNumberInputValue,
@@ -15656,7 +15656,7 @@ const CardPreview = reactExports.memo(function CardPreview2({
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       CardTypeBadge,
       {
-        src: getImageUrl(`../../../../../public/img/${cardType}.png`),
+        src: getImageUrl(cardType === null ? "" : cardType),
         $cardType: cardType
       }
     ),
