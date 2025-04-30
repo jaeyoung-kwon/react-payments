@@ -15656,7 +15656,7 @@ const CardPreview = reactExports.memo(function CardPreview2({
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       CardTypeBadge,
       {
-        src: getImageUrl(`./img/${cardType}.png`),
+        src: getImageUrl(`../../../../../public/img/${cardType}.png`),
         $cardType: cardType
       }
     ),
