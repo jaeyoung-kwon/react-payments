@@ -15642,6 +15642,9 @@ const CardNumberMask = dt.div`
   background-color: white;
   border-radius: 50%;
 `;
+const getImageUrl = (name) => {
+  return new URL((/* @__PURE__ */ Object.assign({}))[`./dir/${name}.png`], import.meta.url).href;
+};
 const CardPreview = reactExports.memo(function CardPreview2({
   cardNumberInputValue,
   expirationDateInputValue,
@@ -15650,7 +15653,13 @@ const CardPreview = reactExports.memo(function CardPreview2({
 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { $cardBank: cardBank, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(CardChip, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(CardTypeBadge, { src: `./img/${cardType}.png`, $cardType: cardType }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      CardTypeBadge,
+      {
+        src: getImageUrl(`./img/${cardType}.png`),
+        $cardType: cardType
+      }
+    ),
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       CardInfoBox,
       {
